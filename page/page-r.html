@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="share">
+<meta name="keywords" content="web,app,分享,逸儒">
+<meta name="author" content="yiru,ah.yiru@gmail.com">
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="be yourself">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<style>
+	header{
+		width:100%;
+		height:50px;
+		background-color:#60f;
+	}
+	.mycontainer{
+		padding:20px 10px;
+		position:relative;
+		width:100%;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
+	.left{
+		width:100%;
+		height:550px;
+		background-color:#eee;
+	}
+	.right{
+		position:absolute;
+		right:-250px;
+		top:20px;
+		width:250px;
+		height:500px;
+		background-color:#808080;
+	}
+	button{
+		margin:7px;
+	}
+	li{
+		cursor:pointer;
+	}
+</style>
+
+</head>
+<body>
+<header><button class="btn btn-success pull-right">test</button></header>
+<div class="mycontainer">
+<div class="left row">
+	<ul class="list-group col-md-3">
+	  <li class="list-group-item t1">aaa<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t1">bbb<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t1">ccc<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t1">ddd<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t1">eee<i class="fa fa-angle-right pull-right"></i></li>
+	</ul>
+	<ul class="list-group col-md-3">
+	  <li class="list-group-item t2">aaa<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t2">bbb<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t2">ccc<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t2">ddd<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t2">eee<i class="fa fa-angle-right pull-right"></i></li>
+	</ul>
+	<ul class="list-group col-md-3">
+	  <li class="list-group-item t3">aaa<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t3">bbb<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t3">ccc<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t3">ddd<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t3">eee<i class="fa fa-angle-right pull-right"></i></li>
+	</ul>
+</div>
+
+<div class="right">
+	<ul class="list-group">
+	  <li class="list-group-item t">aaa<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t">bbb<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t">ccc<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t">ddd<i class="fa fa-angle-right pull-right"></i></li>
+	  <li class="list-group-item t">eee<i class="fa fa-angle-right pull-right"></i></li>
+	</ul>
+</div>
+</div>
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<script>
+
+var json={
+	aaa:{
+		a1:{
+			a11:['a111','a112','a113'],
+			a12:['a121','a122','a123'],
+			a13:['a131','a132','a133']
+		},
+		a2:{
+			a21:['a211','a212','a213'],
+			a22:['a221','a222','a223'],
+			a23:['a231','a232','a233']
+		},
+		a3:{
+			a31:['a311','a312','a313'],
+			a32:['a321','a322','a323'],
+			a33:['a331','a332','a333']
+		}
+	},
+	bbb:{
+		b1:{
+			b11:['b111','b112','b113'],
+			b12:['b121','b122','b123'],
+			b13:['b131','b132','b133']
+		},
+		b2:{
+			b21:['b211','b212','b213'],
+			b22:['b221','b222','b223'],
+			b23:['b231','b232','b233']
+		},
+		b3:{
+			b31:['b311','b312','b313'],
+			b32:['b321','b322','b323'],
+			b33:['b331','b332','b333']
+		}
+	},
+	ccc:{
+		c1:{
+			c11:['c111','c112','c113'],
+			c12:['c121','c122','c123'],
+			c13:['c131','c132','c133']
+		},
+		c2:{
+			c21:['c211','c212','c213'],
+			c22:['c221','c222','c223'],
+			c23:['c231','c232','c233']
+		},
+		c3:{
+			c31:['c311','c312','c313'],
+			c32:['c321','c322','c323'],
+			c33:['c331','c332','c333']
+		}
+	}
+}
+
+	var f=true;
+	$('.btn').on('click',function(){
+		if(f){
+			$('.right').animate({right:'10px'});
+			f=false;
+		}
+		else{
+			$('.right').animate({right:'-250px'});
+			f=true;
+		}
+	});
+
+	var ota=function(obj){
+		var keys=Object.keys(obj),values=[];
+		for(var i=0,l=keys.length;i<l;i++){
+			values.push(obj[keys[i]]);
+		};
+		return {key:keys,val:values}
+	};
+	var k=ota(json).key;
+	var v=ota(json).val;
+	var v1,v2,v3,k1,k2,k3,s1,s2,s3;
+	//console.log(k);
+	/*for(var i=0,l=k.length;i<l;i++){
+		var k1=ota(v[i]).key,v1=ota(v[i]).val;
+		//console.log(k1);
+		for(var i1=0,l1=k1.length;i1<l1;i1++){
+			var k2=ota(v1[i1]).key,v2=ota(v1[i1]).val;
+			//console.log(k2);
+			for(var i2=0,l2=k2.length;i2<l2;i2++){
+				var k3=v2[i2];
+				//console.log(k3);
+			}
+		}
+	}*/
+
+	$('.t').on('click',function(){
+		for(var i=0,l=k.length;i<l;i++){
+			if($(this).text()==k[i]){
+				s1=$(this).text();
+				v1=ota(v[i]).val;
+				k1=ota(v[i]).key;
+				for(var i1=0,l1=k1.length;i1<l1;i1++){
+					$('.t1').eq(i1).text(k1[i1]);
+				}
+			}
+		}
+	})
+	$('.t1').on('click',function(){
+		for(var i=0,l=k1.length;i<l;i++){
+			if($(this).text()==k1[i]){
+				s2=$(this).text();
+				v2=ota(v1[i]).val;
+				k2=ota(v1[i]).key;
+				for(var i1=0,l1=k2.length;i1<l1;i1++){
+					$('.t2').eq(i1).text(k2[i1]);
+				}
+			}
+		}
+	})
+	$('.t2').on('click',function(){
+		for(var i=0,l=k2.length;i<l;i++){
+			if($(this).text()==k2[i]){
+				s3=$(this).text();
+				k3=v2[i];
+				for(var i1=0,l1=k3.length;i1<l1;i1++){
+					$('.t3').eq(i1).text(k3[i1]);
+				}
+			}
+		}
+	})
+	$('.t3').on('click',function(){
+		var sel=s1+'-'+s2+'-'+s3+'-'+$(this).text();
+		alert(sel);
+		$('.right').animate({right:'-250px'});
+		f=true;
+	})
+
+	
+</script>
+
+<script>
+	
+</script>
+
+</body>
+</html>
